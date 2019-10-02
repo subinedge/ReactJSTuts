@@ -82,6 +82,7 @@ class App extends React.Component {
     this.setState({persons:persons})
   }
 
+
   render() {
 
     let persons = null;
@@ -143,7 +144,6 @@ class App extends React.Component {
 
           <hr/>
 
-          
 
           {/* <UserInput usernameHandle = {this.userNameHandler} userName = {this.state.username}/>
           <UserOutput userName = "subin"/>
