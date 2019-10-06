@@ -84,10 +84,20 @@ class App extends React.Component {
 
 
   render() {
+    
+  const styles = {
+    backgroundColor:'white',
+    font: 'inherit',
+    border: '1px solid blue',
+    padding: '10px',
+    cursor: 'pointer'
+  };
+
 
     let persons = null;
 
     if(this.state.showPersons) {
+
       persons = (
           <div>
 
@@ -104,6 +114,7 @@ class App extends React.Component {
               key ={person.id}
               changed ={(event) => this.nameChangehandler(event, person.id)}/>
             })}
+            
 
 
 
@@ -125,18 +136,37 @@ class App extends React.Component {
               age={this.state.persons[2].age}
             /> */}
           </div>
-      )
+      );
+
+      styles.backgroundColor= 'red';
+      styles.color = 'white';
       
     }
+
+    let classes = [];
+
+    if(this.state.persons.length <=2) {
+      classes.push('red');
+    }
+
+    if(this.state.persons.length <=1) {
+      classes.push('bold');
+    }
+
+    if(this.state.persons.length === 0) {
+      classes.push('content');
+    }
+
 
     return (
       <div className="App">
         <header className="App-header">
           <h1>REACT IS WORKING !!</h1>
+          <p className={classes.join(' ')}>React Component Styling</p>
 
           {/* pass arguments while calling function */}
           {/* <button onClick={this.switchNameHandler.bind(this, 'Bindhu')}>Switch Name</button> */}
-          <button onClick={this.togglePersonsHandler}>Toggle Name</button>
+          <button style = {styles} onClick={this.togglePersonsHandler}>Toggle Name</button>
 
           {persons}
 
@@ -152,6 +182,7 @@ class App extends React.Component {
         </header>
       </div>
     );
+    
   }
 }
 
